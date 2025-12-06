@@ -1,8 +1,9 @@
 // ⭐ 발급받은 실제 API 키를 여기에 입력하세요.
-const API_KEY = "여기에_발급받은_키_문자열을_붙여넣으세요"; 
+const API_KEY = "d6756424932b4fe2b4092a1b64e6204f"; 
 
 // 요청 URL 정의 (키를 포함하며, 예시로 20개의 게임만 요청)
-const RAWG_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=20`;
+const RAWG_URL = `https://api.rawg.io/api/games?key=${d6756424932b4fe2b4092a1b64e6204f
+}&page_size=20`;
 
 // API로부터 데이터를 가져오는 함수
 function fetchGameData() {
