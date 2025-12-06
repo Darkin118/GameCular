@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 게임 장르 추천</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 게임 장르 추천기</h1>
+        <p>당신의 취향을 선택하면 딱 맞는 장르를 추천해 드려요!</p>
+        
+        <div class="question-box">
+            <h3>Q. 어떤 분위기를 선호하시나요?</h3>
+            <select id="mood-select">
+                <option value="action">🔥 화끈하고 박진감 넘치는</option>
+                <option value="story">📖 이야기에 깊게 빠져드는</option>
+                <option value="relax">☕ 평화롭고 느긋한</option>
+                <option value="brain">🧠 머리를 써서 해결하는</option>
+            </select>
+            <br><br>
+            <button id="recommend-btn">추천 받기</button>
+        </div>
+
+        <div id="result-area" class="hidden">
+            <h2>추천 장르: <span id="genre-name"></span></h2>
+            <p id="genre-desc"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
