@@ -36,9 +36,10 @@ GameCular/
 ├── README.md           # 프로젝트 설명서
 └── archive/            # 개발 과정 파일 (선택사항)
     ├── styles.css      # 구버전 CSS
-    ├── script.js       # 구버전 JS
-    └── games.json      # 구버전 더미 데이터
+    └── script.js       # 구버전 JS
 ```
+> 💡 **Tip**: `archive/` 폴더는 개발 과정을 보여주기 위한 참고 자료입니다.  
+> 실제 사용 시에는 루트의 `index.html` 파일만 열면 됩니다!
 
 ## 🚀 실행 방법
 
@@ -64,15 +65,20 @@ GameCular/
   - 학습 곡선 최소화
 
 ### 주요 변경사항
-1. ~~정적 JSON 파일~~ → **RAWG API 실시간 연동**
-2. ~~파일 분리 구조~~ → **단일 HTML 파일**
-3. ~~복잡한 상태 관리~~ → **간단한 변수 기반 관리**
+1. 정적 JSON 파일 → **RAWG API 실시간 연동**
+2. 파일 분리 구조 → **단일 HTML 파일**
+3. 복잡한 상태 관리 → **간단한 변수 기반 관리**
 
 ## 📊 API 정보
 
 - **API**: RAWG Video Games Database API
 - **엔드포인트**: `https://api.rawg.io/api/games`
-- **문서**: https://rawg.io/apidocs
+- **사용된 파라미터**:
+  - `key`: API 인증 키
+  - `page_size`: 40 (한 번에 가져올 게임 수)
+  - `ordering`: -rating (평점 높은 순 정렬)
+- **공식 문서**: [https://api.rawg.io/docs](https://api.rawg.io/docs)
+- **API 키 발급**: [https://rawg.io/login?forward=developer](https://rawg.io/login?forward=developer)
 
 ## 🎨 디자인 특징
 
@@ -96,6 +102,21 @@ GameCular/
 ## 📝 라이선스
 
 MIT License
+
+## 🔄 개발 히스토리
+
+### Phase 1: 프로토타입 (archive/v1)
+- 파일 분리 구조로 기본 기능 구현
+- 정적 JSON 데이터 사용
+- 간단한 UI
+
+### Phase 2: 리팩토링 & 통합 (현재 버전)
+- 단일 파일로 통합하여 배포 간소화
+- RAWG API 연동으로 실시간 데이터 제공
+- UI/UX 대폭 개선
+- 완전한 에러 처리
+
+자세한 변경 내역은 [`archive/README.md`](./archive/README.md)를 참고하세요.
 
 ---
 
