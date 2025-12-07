@@ -1,0 +1,60 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.container{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 360px;
+    text-align: center;
+}
+
+#result-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #f7fff7;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.game-thumbnail img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px; 
+}
+
+.game-info {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+small {
+    font-size: 0.8em;
+    color: gray;
+}
