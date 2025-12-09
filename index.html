@@ -163,9 +163,10 @@ h1 {
 .survey-container {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    margin-bottom: 50px;
+    gap: 120px;
+    margin-bottom: 80px;
     width: 100%;
+    padding: 30px 0;
 }
 
 fieldset {
@@ -469,7 +470,7 @@ small {
     <!-- 메인 컨텐츠 -->
     <main class="main-content">
     <div class="container">
-        <h1>🎮 GameCular<br>설문 기반 게임 추천</h1>
+        <h1>🔭 GameCular</h1>
 
         <div class="survey-container">
         <form id="survey-form">
@@ -789,7 +790,7 @@ function displayRecommendation(game, genres) {
         }).join('')
         : '';
 
-    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,#7e57c2 0%,#5e35b1 100%);color:white;border:none;border-radius:20px;cursor:pointer;font-size:0.9rem;transition:transform 0.2s;box-shadow:0 4px 10px rgba(126,87,194,0.3);" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 10px rgba(126,87,194,0.3)\'">🎲 다른 게임 추천받기</button>';
+    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,rgba(157,78,221,0.8) 0%,rgba(114,9,183,0.8) 100%);color:white;border:2px solid rgba(199,125,255,0.5);border-radius:20px;cursor:pointer;font-size:0.9rem;transition:all 0.3s;box-shadow:0 4px 20px rgba(157,78,221,0.4);" onmouseover="this.style.transform=\'scale(1.05)\';this.style.boxShadow=\'0 6px 30px rgba(157,78,221,0.6)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 20px rgba(157,78,221,0.4)\'">🎲 다른 게임 추천받기</button>';
 
     resultArea.classList.remove('hidden');
     resultArea.innerHTML = `
