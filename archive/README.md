@@ -6,7 +6,7 @@
 
 ### v1.0 - 초기 구조 (파일 분리)
 - `styles.css`: 스타일시트 분리
-- `script.js`: JavaScript 로직 분리
+- `script.js`: JavaScript 로직 분fl
 
 **특징:**
 - 전통적인 파일 분리 구조
