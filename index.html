@@ -3,91 +3,312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GameCular 설문 기반 게임 추천</title>
+<title>GameCular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: 
+        radial-gradient(ellipse at top, #1a0033 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, #0d1b2a 0%, transparent 50%),
+        linear-gradient(to bottom, #0a0e27 0%, #1b1b3a 50%, #0f0c29 100%);
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: stars 60s linear infinite;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+@keyframes stars {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sidebar {
+    background: rgba(10, 14, 39, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    box-shadow: 4px 0 30px rgba(138, 43, 226, 0.3);
+    overflow-y: auto;
+    border-right: 1px solid rgba(138, 43, 226, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar h3 {
+    color: #e0b0ff;
+    font-size: 1.3rem;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    border-bottom: 3px solid #9d4edd;
+    padding-bottom: 10px;
+    text-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+.sidebar .name {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(224, 176, 255, 0.6);
+}
+
+.sidebar .info-section {
+    margin: 25px 0;
+}
+
+.sidebar .info-section h4 {
+    color: #c77dff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar p {
+    color: #b8b8d0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 8px 0;
+}
+
+.sidebar .highlight {
+    color: #e0b0ff;
+    font-weight: 600;
+}
+
+.sidebar .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #9d4edd 0%, #7209b7 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 5px 5px 5px 0;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+}
+
+.main-content {
+    padding: 60px 80px;
+    overflow-y: auto;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        padding: 30px 20px;
+    }
+    
+    .main-content {
+        padding: 40px 30px;
+    }
 }
 
 .container{
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     width: 100%;
-    max-width: 420px;
-    text-align: center;
+    max-width: 100%;
+    margin: 0;
 }
 
 h1 {
-    color: #667eea;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-family: 'Gowun Batang', serif;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: 0 0 30px rgba(157, 78, 221, 0.8), 0 0 60px rgba(138, 43, 226, 0.5);
+}
+
+.survey-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
 fieldset {
-    border: none;
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
+    border: 2px solid rgba(157, 78, 221, 0.6);
+    margin: 0;
+    padding: 0;
+    background: rgba(20, 20, 50, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     text-align: left;
+    box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3), 0 0 80px rgba(138, 43, 226, 0.1);
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+fieldset:hover {
+    border-color: rgba(199, 125, 255, 0.8);
+    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.5), 0 0 100px rgba(138, 43, 226, 0.3);
+    transform: translateY(-5px);
+}
+
+.question-header {
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.9) 0%, rgba(114, 9, 183, 0.9) 100%);
+    padding: 25px 35px;
+    color: white;
+    position: relative;
+}
+
+.question-header::before {
+    content: '🔭';
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    opacity: 0.3;
 }
 
 legend {
     font-weight: 600;
-    color: #333;
-    padding: 0 10px;
-    font-size: 0.95rem;
+    color: white;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+    float: none;
+    width: 100%;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.question-desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 8px 0 0 0;
+}
+
+.question-content {
+    padding: 30px 35px;
+    background: rgba(10, 10, 30, 0.5);
 }
 
 .radio-group {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    gap: 12px;
 }
 
 .radio-group label {
     flex: 1;
     text-align: center;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 5px;
-    transition: background-color 0.2s;
+    padding: 12px 10px;
+    border: 2px solid rgba(157, 78, 221, 0.4);
+    border-radius: 10px;
+    transition: all 0.3s;
+    color: #b8b8d0;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    background: rgba(20, 20, 50, 0.5);
 }
 
 .radio-group label:hover {
-    background-color: #e9ecef;
+    border-color: #c77dff;
+    background-color: rgba(157, 78, 221, 0.2);
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+}
+
+.radio-group input[type="radio"]:checked + span {
+    color: #ffffff;
+}
+
+.radio-group label:has(input[type="radio"]:checked) {
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.8) 0%, rgba(114, 9, 183, 0.8) 100%);
+    border-color: #9d4edd;
+    color: white;
+    box-shadow: 0 0 30px rgba(157, 78, 221, 0.6);
 }
 
 .radio-group input[type="radio"] {
     cursor: pointer;
+    accent-color: #9d4edd;
+}
+
+.radio-group label:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.radio-group input[type="radio"]:checked + span {
+    color: #3498db;
+    font-weight: 700;
+}
+
+.radio-group label {
+    position: relative;
+}
+
+.radio-group input[type="radio"] {
+    cursor: pointer;
+    accent-color: #3498db;
 }
 
 #recommend-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 25px;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.9) 0%, rgba(114, 9, 183, 0.9) 100%);
+    color: #ffffff;
+    border: 2px solid rgba(199, 125, 255, 0.5);
+    padding: 20px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 35px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-top: 20px;
+    transition: all 0.3s;
+    margin-top: 40px;
     width: 100%;
+    box-shadow: 0 8px 30px rgba(157, 78, 221, 0.5), 0 0 60px rgba(138, 43, 226, 0.3);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 #recommend-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.7), 0 0 80px rgba(138, 43, 226, 0.5);
+    background: linear-gradient(135deg, rgba(199, 125, 255, 0.9) 0%, rgba(157, 78, 221, 0.9) 100%);
+    border-color: #e0b0ff;
 }
 
 #recommend-btn:disabled {
@@ -96,168 +317,245 @@ legend {
 }
 
 #status-message {
-    margin: 20px 0;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 0.9rem;
+    margin: 30px 0;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 #status-message.info {
-    background-color: #e3f2fd;
-    color: #1976d2;
+    background-color: rgba(157, 78, 221, 0.2);
+    color: #e0b0ff;
+    border-left: 4px solid #9d4edd;
+    backdrop-filter: blur(10px);
 }
 
 #status-message.error {
-    background-color: #ffebee;
-    color: #c62828;
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #ffcccc;
+    border-left: 4px solid #e74c3c;
+    backdrop-filter: blur(10px);
 }
 
 #result-area {
-    padding: 25px;
-    border: 2px solid #667eea;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
-    margin-top: 25px;
+    padding: 40px;
+    border: 2px solid rgba(157, 78, 221, 0.5);
+    border-radius: 20px;
+    background: rgba(20, 20, 50, 0.7);
+    backdrop-filter: blur(10px);
+    margin-top: 40px;
+    box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3), 0 0 80px rgba(138, 43, 226, 0.2);
 }
 
 .game-thumbnail {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .game-thumbnail img {
     width: 100%;
-    max-width: 300px;
-    height: 180px;
+    max-width: 600px;
+    height: 350px;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(157, 78, 221, 0.4);
+    border: 2px solid rgba(199, 125, 255, 0.3);
 }
 
 .game-info h2 {
-    color: #667eea;
-    margin: 15px 0 10px 0;
-    font-size: 1.4rem;
+    color: #e0b0ff;
+    margin: 20px 0 15px 0;
+    font-size: 2rem;
+    text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
 }
 
 .game-info p {
-    margin: 8px 0;
-    color: #555;
+    margin: 12px 0;
+    color: #b8b8d0;
+    font-size: 1.05rem;
 }
 
 .rating {
     display: inline-block;
-    background-color: #ffc107;
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-weight: 600;
-    margin: 10px 0;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
 }
 
 .platforms {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .platform-tag {
-    background-color: #e9ecef;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    color: #495057;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(114, 9, 183, 0.3) 100%);
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: #e0b0ff;
+    font-weight: 500;
+    border: 1px solid rgba(199, 125, 255, 0.4);
 }
 
 .hidden {
     display: none;
 }
 
-.loading {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(157, 78, 221, 0.3);
+    text-align: center;
 }
 
 small {
     display: block;
-    margin-top: 10px;
-    font-size: 0.75rem;
-    color: #999;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #b8b8d0;
+    font-weight: 500;
 }
 </style>
 </head>
 <body>
+    <!-- 좌측 사이드바 프로필 -->
+    <aside class="sidebar">
+        <h3>👨‍💻 Developer</h3>
+        <p class="name">윤인성</p>
+        
+        <div class="info-section">
+            <h4>🎓 Education</h4>
+            <p>
+                <span class="highlight">서울사이버대학교</span><br>
+                빅데이터·정보보호학과 재학
+            </p>
+        </div>
+        
+        <div class="info-section">
+            <h4>💡 About This Project</h4>
+            <p>
+                AWS 클라우드 서비스를 활용한 첫 포트폴리오 프로젝트입니다.
+                교수님의 강의를 듣고 대화형 인공지능(Claude)의 도움을 받아 제작했습니다.
+            </p>
+        </div>
+        
+        <div class="info-section">
+            <h4>🛠️ Tech Stack</h4>
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">RAWG API</span>
+            <span class="badge">AWS</span>
+        </div>
+        
+        <div class="info-section">
+            <h4>🚀 Goals</h4>
+            <p>
+                부족한 점은 많지만 앞으로 계속해서 배우고 개선해 나가며 
+                더 나은 개발자로 성장하겠습니다!
+            </p>
+        </div>
+    </aside>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
     <div class="container">
         <h1>🎮 GameCular<br>설문 기반 게임 추천</h1>
 
+        <div class="survey-container">
         <form id="survey-form">
             <fieldset>
-                <legend>1. 빠른 액션과 스릴을 즐기고 싶다</legend>
-                <div class="radio-group">
-                    <label><input type="radio" name="q1" value="1"> 1</label>
-                    <label><input type="radio" name="q1" value="2"> 2</label>
-                    <label><input type="radio" name="q1" value="3" checked> 3</label>
-                    <label><input type="radio" name="q1" value="4"> 4</label>
-                    <label><input type="radio" name="q1" value="5"> 5</label>
+                <div class="question-header">
+                    <legend>1. 빠르고 화려한 액션이 있는 게임을 선호하시나요?</legend>
+                    <p class="question-desc">박진감 넘치는 전투, 스릴 넘치는 추격전, 화려한 전투 액션을 즐기시나요?</p>
+                </div>
+                <div class="question-content">
+                    <div class="radio-group">
+                        <label><input type="radio" name="q1" value="1"> <span>전혀<br>아니다</span></label>
+                        <label><input type="radio" name="q1" value="2"> <span>아니다</span></label>
+                        <label><input type="radio" name="q1" value="3" checked> <span>보통<br>이다</span></label>
+                        <label><input type="radio" name="q1" value="4"> <span>그렇다</span></label>
+                        <label><input type="radio" name="q1" value="5"> <span>매우<br>그렇다</span></label>
+                    </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>2. 탐험하고 새로운 세계를 경험하고 싶다</legend>
-                <div class="radio-group">
-                    <label><input type="radio" name="q2" value="1"> 1</label>
-                    <label><input type="radio" name="q2" value="2"> 2</label>
-                    <label><input type="radio" name="q2" value="3" checked> 3</label>
-                    <label><input type="radio" name="q2" value="4"> 4</label>
-                    <label><input type="radio" name="q2" value="5"> 5</label>
+                <div class="question-header">
+                    <legend>2. 새로운 장소를 탐험하고 모험하는 게임이 좋으신가요?</legend>
+                    <p class="question-desc">미지의 세계를 발견하고, 숨겨진 보물을 찾고, 광활한 맵을 여행하는 것을 좋아하시나요?</p>
+                </div>
+                <div class="question-content">
+                    <div class="radio-group">
+                        <label><input type="radio" name="q2" value="1"> <span>전혀<br>아니다</span></label>
+                        <label><input type="radio" name="q2" value="2"> <span>아니다</span></label>
+                        <label><input type="radio" name="q2" value="3" checked> <span>보통<br>이다</span></label>
+                        <label><input type="radio" name="q2" value="4"> <span>그렇다</span></label>
+                        <label><input type="radio" name="q2" value="5"> <span>매우<br>그렇다</span></label>
+                    </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>3. 깊은 스토리와 전략적 사고를 원한다</legend>
-                <div class="radio-group">
-                    <label><input type="radio" name="q3" value="1"> 1</label>
-                    <label><input type="radio" name="q3" value="2"> 2</label>
-                    <label><input type="radio" name="q3" value="3" checked> 3</label>
-                    <label><input type="radio" name="q3" value="4"> 4</label>
-                    <label><input type="radio" name="q3" value="5"> 5</label>
+                <div class="question-header">
+                    <legend>3. 머리를 써야 하는 전략적이고 스토리가 깊은 게임을 원하시나요?</legend>
+                    <p class="question-desc">복잡한 전략을 세우고, 깊이 있는 이야기에 몰입하며, 신중한 결정을 내리는 것을 즐기시나요?</p>
+                </div>
+                <div class="question-content">
+                    <div class="radio-group">
+                        <label><input type="radio" name="q3" value="1"> <span>전혀<br>아니다</span></label>
+                        <label><input type="radio" name="q3" value="2"> <span>아니다</span></label>
+                        <label><input type="radio" name="q3" value="3" checked> <span>보통<br>이다</span></label>
+                        <label><input type="radio" name="q3" value="4"> <span>그렇다</span></label>
+                        <label><input type="radio" name="q3" value="5"> <span>매우<br>그렇다</span></label>
+                    </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>4. 편안하게 쉬면서 가볍게 즐기고 싶다</legend>
-                <div class="radio-group">
-                    <label><input type="radio" name="q4" value="1"> 1</label>
-                    <label><input type="radio" name="q4" value="2"> 2</label>
-                    <label><input type="radio" name="q4" value="3" checked> 3</label>
-                    <label><input type="radio" name="q4" value="4"> 4</label>
-                    <label><input type="radio" name="q4" value="5"> 5</label>
+                <div class="question-header">
+                    <legend>4. 부담 없이 편안하게 즐길 수 있는 게임이 좋으신가요?</legend>
+                    <p class="question-desc">느긋한 분위기에서 스트레스 없이, 여유롭게 즐기며 힐링할 수 있는 게임을 원하시나요?</p>
+                </div>
+                <div class="question-content">
+                    <div class="radio-group">
+                        <label><input type="radio" name="q4" value="1"> <span>전혀<br>아니다</span></label>
+                        <label><input type="radio" name="q4" value="2"> <span>아니다</span></label>
+                        <label><input type="radio" name="q4" value="3" checked> <span>보통<br>이다</span></label>
+                        <label><input type="radio" name="q4" value="4"> <span>그렇다</span></label>
+                        <label><input type="radio" name="q4" value="5"> <span>매우<br>그렇다</span></label>
+                    </div>
                 </div>
             </fieldset>
+        </form>
+        </div>
 
             <button type="button" id="recommend-btn">추천 받기</button>
-        </form>
 
         <div id="status-message" class="info">
             게임 데이터를 불러오는 중...
         </div>
+
         <div id="result-area" class="hidden"></div>
         
-        <small>※ RAWG API를 활용한 실시간 게임 추천 서비스입니다</small>
+        <div class="footer">
+            <small>※ RAWG API를 활용한 실시간 게임 추천 서비스입니다</small>
+        </div>
     </div>
+    </main>
 
     <script>
 let ALL_GAMES = [];
+let RECOMMENDED_GAMES = []; // 이미 추천한 게임 목록
 let isLoading = true;
 const API_KEY = "d6756424932b4fe2b4092a1b64e6204f";
 const RAWG_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&ordering=-rating`;
@@ -267,6 +565,29 @@ const MOOD_TO_GENRES = {
     adventure: ["Adventure", "Platformer"],
     story: ["RPG", "Strategy"],
     relax: ["Simulation", "Casual", "Puzzle", "Family"]
+};
+
+const MOOD_DESCRIPTIONS = {
+    action: {
+        emoji: "⚔️",
+        title: "액션 헌터",
+        desc: "아드레날린이 솟구치는 전투를 원하시는군요!"
+    },
+    adventure: {
+        emoji: "🗺️",
+        title: "모험가",
+        desc: "미지의 세계를 탐험하고 싶으시군요!"
+    },
+    story: {
+        emoji: "📖",
+        title: "전략가",
+        desc: "깊이있는 스토리와 전략이 필요하시군요!"
+    },
+    relax: {
+        emoji: "☕",
+        title: "힐링 마스터",
+        desc: "편안한 휴식이 필요한 시간이네요!"
+    }
 };
 
 const GENRE_TRANSLATIONS = {
@@ -303,6 +624,64 @@ function updateStatus(message, type = 'info') {
     statusEl.className = type;
 }
 
+function useFallbackData() {
+    console.log('대체 데이터 사용');
+    ALL_GAMES = [
+        {
+            name: "The Witcher 3: Wild Hunt",
+            genres: [{name: "RPG"}, {name: "Action"}],
+            rating: 4.66,
+            background_image: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
+            platforms: [{platform: {name: "PC"}}, {platform: {name: "PlayStation 4"}}],
+            released: "2015-05-18"
+        },
+        {
+            name: "Portal 2",
+            genres: [{name: "Puzzle"}, {name: "Platformer"}],
+            rating: 4.62,
+            background_image: "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2011-04-18"
+        },
+        {
+            name: "Stardew Valley",
+            genres: [{name: "Simulation"}, {name: "Casual"}],
+            rating: 4.44,
+            background_image: "https://media.rawg.io/media/games/713/713269608dc8f2f40f5a670a14b2de94.jpg",
+            platforms: [{platform: {name: "PC"}}, {platform: {name: "Nintendo Switch"}}],
+            released: "2016-02-26"
+        },
+        {
+            name: "Counter-Strike: Global Offensive",
+            genres: [{name: "Action"}, {name: "Shooter"}],
+            rating: 4.48,
+            background_image: "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2012-08-21"
+        },
+        {
+            name: "Terraria",
+            genres: [{name: "Adventure"}, {name: "Platformer"}],
+            rating: 4.41,
+            background_image: "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2011-05-16"
+        },
+        {
+            name: "Civilization VI",
+            genres: [{name: "Strategy"}, {name: "RPG"}],
+            rating: 4.35,
+            background_image: "https://media.rawg.io/media/games/0e5/0e5e869f2e8f496b3f09e00187ea94fc.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2016-10-21"
+        }
+    ];
+    
+    isLoading = false;
+    updateStatus('⚠️ 테스트 모드로 실행 중입니다. 설문을 완료하고 추천 버튼을 눌러주세요', 'info');
+    document.getElementById('recommend-btn').disabled = false;
+}
+
 function loadGames() {
     updateStatus('게임 데이터를 불러오는 중...', 'info');
     
@@ -313,6 +692,11 @@ function loadGames() {
         })
         .then(data => {
             ALL_GAMES = data.results || [];
+            
+            if (ALL_GAMES.length === 0) {
+                throw new Error('게임 데이터가 비어있습니다');
+            }
+            
             isLoading = false;
             updateStatus('설문을 완료하고 추천 버튼을 눌러주세요', 'info');
             document.getElementById('recommend-btn').disabled = false;
@@ -320,9 +704,7 @@ function loadGames() {
         })
         .catch(err => {
             console.error("API 로딩 실패:", err);
-            isLoading = false;
-            updateStatus('게임 데이터를 불러오는데 실패했습니다. 잠시 후 다시 시도해주세요.', 'error');
-            document.getElementById('recommend-btn').disabled = true;
+            useFallbackData();
         });
 }
 
@@ -356,26 +738,31 @@ function recommendGame() {
 
     const mood = calculateMood();
     const targetGenres = MOOD_TO_GENRES[mood];
+    const moodInfo = MOOD_DESCRIPTIONS[mood];
     
-    updateStatus('게임을 추천하는 중...', 'info');
+    updateStatus(`${moodInfo.emoji} 당신은 ${moodInfo.title}! ${moodInfo.desc}`, 'info');
 
     const filteredGames = ALL_GAMES
         .filter(g => Array.isArray(g.genres) && g.genres.length > 0)
         .filter(g => g.genres.some(gg => 
             targetGenres.some(tg => tg.toLowerCase() === gg.name.toLowerCase())
         ))
-        .filter(g => g.rating >= 3.5);
+        .filter(g => g.rating >= 3.5)
+        .filter(g => !RECOMMENDED_GAMES.includes(g.name)); // 이미 추천한 게임 제외
 
     console.log(`${targetGenres.join(', ')} 장르에서 ${filteredGames.length}개 게임 발견`);
 
     if (filteredGames.length === 0) {
+        // 추천할 게임이 없으면 목록 초기화
+        RECOMMENDED_GAMES = [];
         const translatedGenres = targetGenres.map(g => GENRE_TRANSLATIONS[g] || g).join(", ");
-        updateStatus(`죄송합니다. [${translatedGenres}] 장르의 고평점 게임을 찾지 못했습니다.`, 'error');
+        updateStatus(`모든 [${translatedGenres}] 장르 게임을 추천했습니다! 처음부터 다시 추천받으시겠어요?`, 'info');
         document.getElementById('result-area').classList.add('hidden');
         return;
     }
 
     const selectedGame = filteredGames[Math.floor(Math.random() * filteredGames.length)];
+    RECOMMENDED_GAMES.push(selectedGame.name); // 추천한 게임 목록에 추가
     displayRecommendation(selectedGame, targetGenres);
 }
 
@@ -402,6 +789,8 @@ function displayRecommendation(game, genres) {
         }).join('')
         : '';
 
+    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,#7e57c2 0%,#5e35b1 100%);color:white;border:none;border-radius:20px;cursor:pointer;font-size:0.9rem;transition:transform 0.2s;box-shadow:0 4px 10px rgba(126,87,194,0.3);" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 10px rgba(126,87,194,0.3)\'">🎲 다른 게임 추천받기</button>';
+
     resultArea.classList.remove('hidden');
     resultArea.innerHTML = `
         <div class="game-thumbnail">
@@ -415,11 +804,14 @@ function displayRecommendation(game, genres) {
             <p style="color:#666; font-size:0.9rem; margin-top:15px;">
                 ${game.released ? `출시일: ${game.released}` : ''}
             </p>
+            ${retryButton}
         </div>
     `;
 
+    const mood = calculateMood();
+    const moodInfo = MOOD_DESCRIPTIONS[mood];
     const translatedGenres = genres.map(g => GENRE_TRANSLATIONS[g] || g).join(", ");
-    updateStatus(`[${translatedGenres}] 장르의 게임을 추천했습니다! 🎮`, 'info');
+    updateStatus(`${moodInfo.emoji} ${moodInfo.title}님을 위한 [${translatedGenres}] 게임입니다! 🎮`, 'info');
     
     resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
