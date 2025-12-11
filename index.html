@@ -11,9 +11,9 @@
 body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: 
-        radial-gradient(ellipse at top, #1a0033 0%, transparent 50%),
-        radial-gradient(ellipse at bottom, #0d1b2a 0%, transparent 50%),
-        linear-gradient(to bottom, #0a0e27 0%, #1b1b3a 50%, #0f0c29 100%);
+        radial-gradient(ellipse at top, #331a00 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, #1a0d00 0%, transparent 50%),
+        linear-gradient(to bottom, #1a0f00 0%, #2d1a00 50%, #1f1200 100%);
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -31,18 +31,18 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 60% 70%, white, transparent),
-        radial-gradient(1px 1px at 50% 50%, white, transparent),
-        radial-gradient(1px 1px at 80% 10%, white, transparent),
-        radial-gradient(2px 2px at 90% 60%, white, transparent),
-        radial-gradient(1px 1px at 33% 80%, white, transparent),
-        radial-gradient(1px 1px at 15% 90%, white, transparent);
+        radial-gradient(2px 2px at 20% 30%, #ff8c00, transparent),
+        radial-gradient(2px 2px at 60% 70%, #ff8c00, transparent),
+        radial-gradient(1px 1px at 50% 50%, #ffa500, transparent),
+        radial-gradient(1px 1px at 80% 10%, #ff8c00, transparent),
+        radial-gradient(2px 2px at 90% 60%, #ff8c00, transparent),
+        radial-gradient(1px 1px at 33% 80%, #ffa500, transparent),
+        radial-gradient(1px 1px at 15% 90%, #ff8c00, transparent);
     background-size: 200% 200%;
     background-position: 0% 0%;
     animation: stars 60s linear infinite;
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.4;
     z-index: 0;
 }
 
@@ -58,24 +58,24 @@ body::before {
 }
 
 .sidebar {
-    background: rgba(10, 14, 39, 0.85);
+    background: rgba(26, 13, 0, 0.85);
     backdrop-filter: blur(10px);
     padding: 40px 30px;
-    box-shadow: 4px 0 30px rgba(138, 43, 226, 0.3);
+    box-shadow: 4px 0 30px rgba(255, 140, 0, 0.3);
     overflow-y: auto;
-    border-right: 1px solid rgba(138, 43, 226, 0.3);
+    border-right: 1px solid rgba(255, 140, 0, 0.3);
     position: relative;
     z-index: 1;
 }
 
 .sidebar h3 {
-    color: #e0b0ff;
+    color: #ffb366;
     font-size: 1.3rem;
     margin: 0 0 20px 0;
     font-weight: 700;
-    border-bottom: 3px solid #9d4edd;
+    border-bottom: 3px solid #ff8c00;
     padding-bottom: 10px;
-    text-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
 }
 
 .sidebar .name {
@@ -83,7 +83,7 @@ body::before {
     color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(224, 176, 255, 0.6);
+    text-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
 }
 
 .sidebar .info-section {
@@ -91,33 +91,34 @@ body::before {
 }
 
 .sidebar .info-section h4 {
-    color: #c77dff;
+    color: #ffa500;
     font-size: 1rem;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
 .sidebar p {
-    color: #b8b8d0;
+    color: #d0bcaa;
     font-size: 0.95rem;
     line-height: 1.7;
     margin: 8px 0;
 }
 
 .sidebar .highlight {
-    color: #e0b0ff;
+    color: #ffb366;
     font-weight: 600;
 }
 
 .sidebar .badge {
     display: inline-block;
-    background: linear-gradient(135deg, #9d4edd 0%, #7209b7 100%);
-    color: white;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+    color: #1a0f00;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     margin: 5px 5px 5px 0;
-    box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+    font-weight: 600;
 }
 
 .main-content {
@@ -157,7 +158,7 @@ h1 {
     font-weight: 700;
     letter-spacing: 3px;
     text-align: center;
-    text-shadow: 0 0 30px rgba(157, 78, 221, 0.8), 0 0 60px rgba(138, 43, 226, 0.5);
+    text-shadow: 0 0 30px rgba(255, 140, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.5);
 }
 
 .survey-container {
@@ -170,28 +171,28 @@ h1 {
 }
 
 fieldset {
-    border: 2px solid rgba(157, 78, 221, 0.6);
+    border: 2px solid rgba(255, 140, 0, 0.6);
     margin: 0;
     padding: 0;
-    background: rgba(20, 20, 50, 0.7);
+    background: rgba(35, 20, 0, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     text-align: left;
-    box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3), 0 0 80px rgba(138, 43, 226, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.1);
     transition: all 0.3s;
     overflow: hidden;
 }
 
 fieldset:hover {
-    border-color: rgba(199, 125, 255, 0.8);
-    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.5), 0 0 100px rgba(138, 43, 226, 0.3);
+    border-color: rgba(255, 165, 0, 0.8);
+    box-shadow: 0 12px 40px rgba(255, 140, 0, 0.5), 0 0 100px rgba(255, 165, 0, 0.3);
     transform: translateY(-5px);
 }
 
 .question-header {
-    background: linear-gradient(135deg, rgba(157, 78, 221, 0.9) 0%, rgba(114, 9, 183, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.9) 0%, rgba(255, 102, 0, 0.9) 100%);
     padding: 25px 35px;
-    color: white;
+    color: #1a0f00;
     position: relative;
 }
 
@@ -207,18 +208,18 @@ fieldset:hover {
 
 legend {
     font-weight: 600;
-    color: white;
+    color: #1a0f00;
     padding: 0;
     font-size: 1.1rem;
     line-height: 1.5;
     margin: 0;
     float: none;
     width: 100%;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
 
 .question-desc {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(26, 15, 0, 0.85);
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 8px 0 0 0;
@@ -226,7 +227,7 @@ legend {
 
 .question-content {
     padding: 30px 35px;
-    background: rgba(10, 10, 30, 0.5);
+    background: rgba(20, 12, 0, 0.5);
 }
 
 .radio-group {
@@ -240,43 +241,44 @@ legend {
     text-align: center;
     cursor: pointer;
     padding: 12px 10px;
-    border: 2px solid rgba(157, 78, 221, 0.4);
+    border: 2px solid rgba(255, 140, 0, 0.4);
     border-radius: 10px;
     transition: all 0.3s;
-    color: #b8b8d0;
+    color: #d0bcaa;
     font-size: 0.9rem;
     line-height: 1.3;
-    background: rgba(20, 20, 50, 0.5);
+    background: rgba(35, 20, 0, 0.5);
 }
 
 .radio-group label:hover {
-    border-color: #c77dff;
-    background-color: rgba(157, 78, 221, 0.2);
-    box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+    border-color: #ffa500;
+    background-color: rgba(255, 140, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
 }
 
 .radio-group input[type="radio"]:checked + span {
-    color: #ffffff;
+    color: #1a0f00;
 }
 
 .radio-group label:has(input[type="radio"]:checked) {
-    background: linear-gradient(135deg, rgba(157, 78, 221, 0.8) 0%, rgba(114, 9, 183, 0.8) 100%);
-    border-color: #9d4edd;
-    color: white;
-    box-shadow: 0 0 30px rgba(157, 78, 221, 0.6);
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.8) 0%, rgba(255, 102, 0, 0.8) 100%);
+    border-color: #ff8c00;
+    color: #1a0f00;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+    font-weight: 600;
 }
 
 .radio-group input[type="radio"] {
     cursor: pointer;
-    accent-color: #9d4edd;
+    accent-color: #ff8c00;
 }
 
 .radio-group label:hover {
-    background-color: rgba(52, 152, 219, 0.1);
+    background-color: rgba(255, 140, 0, 0.1);
 }
 
 .radio-group input[type="radio"]:checked + span {
-    color: #3498db;
+    color: #1a0f00;
     font-weight: 700;
 }
 
@@ -286,13 +288,13 @@ legend {
 
 .radio-group input[type="radio"] {
     cursor: pointer;
-    accent-color: #3498db;
+    accent-color: #ff8c00;
 }
 
 #recommend-btn {
-    background: linear-gradient(135deg, rgba(157, 78, 221, 0.9) 0%, rgba(114, 9, 183, 0.9) 100%);
-    color: #ffffff;
-    border: 2px solid rgba(199, 125, 255, 0.5);
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.9) 0%, rgba(255, 102, 0, 0.9) 100%);
+    color: #1a0f00;
+    border: 2px solid rgba(255, 165, 0, 0.5);
     padding: 20px 50px;
     font-size: 1.3rem;
     font-weight: 700;
@@ -301,15 +303,15 @@ legend {
     transition: all 0.3s;
     margin-top: 40px;
     width: 100%;
-    box-shadow: 0 8px 30px rgba(157, 78, 221, 0.5), 0 0 60px rgba(138, 43, 226, 0.3);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(255, 140, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
 
 #recommend-btn:hover:not(:disabled) {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.7), 0 0 80px rgba(138, 43, 226, 0.5);
-    background: linear-gradient(135deg, rgba(199, 125, 255, 0.9) 0%, rgba(157, 78, 221, 0.9) 100%);
-    border-color: #e0b0ff;
+    box-shadow: 0 12px 40px rgba(255, 140, 0, 0.7), 0 0 80px rgba(255, 165, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.9) 0%, rgba(255, 140, 0, 0.9) 100%);
+    border-color: #ffb366;
 }
 
 #recommend-btn:disabled {
@@ -327,9 +329,9 @@ legend {
 }
 
 #status-message.info {
-    background-color: rgba(157, 78, 221, 0.2);
-    color: #e0b0ff;
-    border-left: 4px solid #9d4edd;
+    background-color: rgba(255, 140, 0, 0.2);
+    color: #ffb366;
+    border-left: 4px solid #ff8c00;
     backdrop-filter: blur(10px);
 }
 
@@ -342,12 +344,12 @@ legend {
 
 #result-area {
     padding: 40px;
-    border: 2px solid rgba(157, 78, 221, 0.5);
+    border: 2px solid rgba(255, 140, 0, 0.5);
     border-radius: 20px;
-    background: rgba(20, 20, 50, 0.7);
+    background: rgba(35, 20, 0, 0.7);
     backdrop-filter: blur(10px);
     margin-top: 40px;
-    box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3), 0 0 80px rgba(138, 43, 226, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.2);
 }
 
 .game-thumbnail {
@@ -360,33 +362,33 @@ legend {
     height: 350px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(157, 78, 221, 0.4);
-    border: 2px solid rgba(199, 125, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(255, 140, 0, 0.4);
+    border: 2px solid rgba(255, 165, 0, 0.3);
 }
 
 .game-info h2 {
-    color: #e0b0ff;
+    color: #ffb366;
     margin: 20px 0 15px 0;
     font-size: 2rem;
-    text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
 }
 
 .game-info p {
     margin: 12px 0;
-    color: #b8b8d0;
+    color: #d0bcaa;
     font-size: 1.05rem;
 }
 
 .rating {
     display: inline-block;
-    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-    color: white;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+    color: #1a0f00;
     padding: 8px 18px;
     border-radius: 20px;
     font-weight: 700;
     margin: 15px 0;
     font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
 }
 
 .platforms {
@@ -398,13 +400,13 @@ legend {
 }
 
 .platform-tag {
-    background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(114, 9, 183, 0.3) 100%);
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.3) 0%, rgba(255, 102, 0, 0.3) 100%);
     padding: 8px 16px;
     border-radius: 15px;
     font-size: 0.9rem;
-    color: #e0b0ff;
+    color: #ffb366;
     font-weight: 500;
-    border: 1px solid rgba(199, 125, 255, 0.4);
+    border: 1px solid rgba(255, 165, 0, 0.4);
 }
 
 .hidden {
@@ -414,7 +416,7 @@ legend {
 .footer {
     margin-top: 50px;
     padding-top: 30px;
-    border-top: 2px solid rgba(157, 78, 221, 0.3);
+    border-top: 2px solid rgba(255, 140, 0, 0.3);
     text-align: center;
 }
 
@@ -422,7 +424,7 @@ small {
     display: block;
     margin-top: 15px;
     font-size: 0.95rem;
-    color: #b8b8d0;
+    color: #d0bcaa;
     font-weight: 500;
 }
 </style>
@@ -556,7 +558,7 @@ small {
 
     <script>
 let ALL_GAMES = [];
-let RECOMMENDED_GAMES = []; // 이미 추천한 게임 목록
+let RECOMMENDED_GAMES = [];
 let isLoading = true;
 const API_KEY = "d6756424932b4fe2b4092a1b64e6204f";
 const RAWG_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&ordering=-rating`;
@@ -675,36 +677,77 @@ function useFallbackData() {
             background_image: "https://media.rawg.io/media/games/0e5/0e5e869f2e8f496b3f09e00187ea94fc.jpg",
             platforms: [{platform: {name: "PC"}}],
             released: "2016-10-21"
+        },
+        {
+            name: "Minecraft",
+            genres: [{name: "Adventure"}, {name: "Casual"}],
+            rating: 4.43,
+            background_image: "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2011-11-18"
+        },
+        {
+            name: "Grand Theft Auto V",
+            genres: [{name: "Action"}, {name: "Adventure"}],
+            rating: 4.47,
+            background_image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+            platforms: [{platform: {name: "PC"}}, {platform: {name: "PlayStation 4"}}],
+            released: "2013-09-17"
+        },
+        {
+            name: "Half-Life 2",
+            genres: [{name: "Action"}, {name: "Shooter"}],
+            rating: 4.50,
+            background_image: "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
+            platforms: [{platform: {name: "PC"}}],
+            released: "2004-11-16"
+        },
+        {
+            name: "Animal Crossing: New Horizons",
+            genres: [{name: "Simulation"}, {name: "Family"}],
+            rating: 4.40,
+            background_image: "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
+            platforms: [{platform: {name: "Nintendo Switch"}}],
+            released: "2020-03-20"
         }
     ];
     
     isLoading = false;
-    updateStatus('⚠️ 테스트 모드로 실행 중입니다. 설문을 완료하고 추천 버튼을 눌러주세요', 'info');
+    updateStatus('✅ 게임 데이터 로드 완료! 설문을 완료하고 추천 버튼을 눌러주세요', 'info');
     document.getElementById('recommend-btn').disabled = false;
 }
 
 function loadGames() {
-    updateStatus('게임 데이터를 불러오는 중...', 'info');
+    updateStatus('🎮 게임 데이터를 불러오는 중...', 'info');
+    
+    // API 요청 전 타임아웃 설정
+    const timeoutId = setTimeout(() => {
+        console.log('API 요청 타임아웃 - 대체 데이터 사용');
+        useFallbackData();
+    }, 5000); // 5초 타임아웃
     
     fetch(RAWG_URL)
         .then(res => {
-            if (!res.ok) throw new Error('API 응답 오류');
+            clearTimeout(timeoutId);
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
             return res.json();
         })
         .then(data => {
-            ALL_GAMES = data.results || [];
-            
-            if (ALL_GAMES.length === 0) {
+            if (data.results && data.results.length > 0) {
+                ALL_GAMES = data.results;
+                isLoading = false;
+                updateStatus('✅ 게임 데이터 로드 완료! 설문을 완료하고 추천 버튼을 눌러주세요', 'info');
+                document.getElementById('recommend-btn').disabled = false;
+                console.log(`✅ ${ALL_GAMES.length}개의 게임 로딩 완료`);
+            } else {
                 throw new Error('게임 데이터가 비어있습니다');
             }
-            
-            isLoading = false;
-            updateStatus('설문을 완료하고 추천 버튼을 눌러주세요', 'info');
-            document.getElementById('recommend-btn').disabled = false;
-            console.log(`${ALL_GAMES.length}개의 게임 로딩 완료`);
         })
         .catch(err => {
-            console.error("API 로딩 실패:", err);
+            clearTimeout(timeoutId);
+            console.warn("⚠️ API 로딩 실패, 대체 데이터 사용:", err.message);
             useFallbackData();
         });
 }
@@ -733,7 +776,7 @@ function calculateMood() {
 
 function recommendGame() {
     if (isLoading || ALL_GAMES.length === 0) {
-        updateStatus('게임 데이터를 아직 불러오는 중입니다. 잠시만 기다려주세요.', 'error');
+        updateStatus('⏳ 게임 데이터를 아직 불러오는 중입니다. 잠시만 기다려주세요.', 'error');
         return;
     }
 
@@ -749,21 +792,20 @@ function recommendGame() {
             targetGenres.some(tg => tg.toLowerCase() === gg.name.toLowerCase())
         ))
         .filter(g => g.rating >= 3.5)
-        .filter(g => !RECOMMENDED_GAMES.includes(g.name)); // 이미 추천한 게임 제외
+        .filter(g => !RECOMMENDED_GAMES.includes(g.name));
 
     console.log(`${targetGenres.join(', ')} 장르에서 ${filteredGames.length}개 게임 발견`);
 
     if (filteredGames.length === 0) {
-        // 추천할 게임이 없으면 목록 초기화
         RECOMMENDED_GAMES = [];
         const translatedGenres = targetGenres.map(g => GENRE_TRANSLATIONS[g] || g).join(", ");
-        updateStatus(`모든 [${translatedGenres}] 장르 게임을 추천했습니다! 처음부터 다시 추천받으시겠어요?`, 'info');
+        updateStatus(`🎉 모든 [${translatedGenres}] 장르 게임을 추천했습니다! 처음부터 다시 추천받으시겠어요?`, 'info');
         document.getElementById('result-area').classList.add('hidden');
         return;
     }
 
     const selectedGame = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-    RECOMMENDED_GAMES.push(selectedGame.name); // 추천한 게임 목록에 추가
+    RECOMMENDED_GAMES.push(selectedGame.name);
     displayRecommendation(selectedGame, targetGenres);
 }
 
@@ -790,7 +832,7 @@ function displayRecommendation(game, genres) {
         }).join('')
         : '';
 
-    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,rgba(157,78,221,0.8) 0%,rgba(114,9,183,0.8) 100%);color:white;border:2px solid rgba(199,125,255,0.5);border-radius:20px;cursor:pointer;font-size:0.9rem;transition:all 0.3s;box-shadow:0 4px 20px rgba(157,78,221,0.4);" onmouseover="this.style.transform=\'scale(1.05)\';this.style.boxShadow=\'0 6px 30px rgba(157,78,221,0.6)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 20px rgba(157,78,221,0.4)\'">🎲 다른 게임 추천받기</button>';
+    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,rgba(255,140,0,0.8) 0%,rgba(255,102,0,0.8) 100%);color:#1a0f00;border:2px solid rgba(255,165,0,0.5);border-radius:20px;cursor:pointer;font-size:0.9rem;font-weight:600;transition:all 0.3s;box-shadow:0 4px 20px rgba(255,140,0,0.4);" onmouseover="this.style.transform=\'scale(1.05)\';this.style.boxShadow=\'0 6px 30px rgba(255,140,0,0.6)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 20px rgba(255,140,0,0.4)\'">🎲 다른 게임 추천받기</button>';
 
     resultArea.classList.remove('hidden');
     resultArea.innerHTML = `
@@ -802,7 +844,7 @@ function displayRecommendation(game, genres) {
             <div class="rating">⭐ ${rating} / 5.0</div>
             <p><strong>장르:</strong> ${genreStr}</p>
             ${platforms ? `<div class="platforms">${platforms}</div>` : ''}
-            <p style="color:#666; font-size:0.9rem; margin-top:15px;">
+            <p style="color:#999; font-size:0.9rem; margin-top:15px;">
                 ${game.released ? `출시일: ${game.released}` : ''}
             </p>
             ${retryButton}
