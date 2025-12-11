@@ -8,12 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: 
-        radial-gradient(ellipse at top, #331a00 0%, transparent 50%),
-        radial-gradient(ellipse at bottom, #1a0d00 0%, transparent 50%),
-        linear-gradient(to bottom, #1a0f00 0%, #2d1a00 50%, #1f1200 100%);
+        radial-gradient(ellipse at top, #2d1f00 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, #1a1200 0%, transparent 50%),
+        linear-gradient(to bottom, #1a1400 0%, #2d2400 50%, #1f1800 100%);
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -31,13 +35,13 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20% 30%, #ff8c00, transparent),
-        radial-gradient(2px 2px at 60% 70%, #ff8c00, transparent),
-        radial-gradient(1px 1px at 50% 50%, #ffa500, transparent),
-        radial-gradient(1px 1px at 80% 10%, #ff8c00, transparent),
-        radial-gradient(2px 2px at 90% 60%, #ff8c00, transparent),
-        radial-gradient(1px 1px at 33% 80%, #ffa500, transparent),
-        radial-gradient(1px 1px at 15% 90%, #ff8c00, transparent);
+        radial-gradient(2px 2px at 20% 30%, #ffd700, transparent),
+        radial-gradient(2px 2px at 60% 70%, #ffd700, transparent),
+        radial-gradient(1px 1px at 50% 50%, #ffed4e, transparent),
+        radial-gradient(1px 1px at 80% 10%, #ffd700, transparent),
+        radial-gradient(2px 2px at 90% 60%, #ffd700, transparent),
+        radial-gradient(1px 1px at 33% 80%, #ffed4e, transparent),
+        radial-gradient(1px 1px at 15% 90%, #ffd700, transparent);
     background-size: 200% 200%;
     background-position: 0% 0%;
     animation: stars 60s linear infinite;
@@ -55,27 +59,32 @@ body::before {
     body {
         grid-template-columns: 1fr;
     }
+    
+    .sidebar {
+        position: relative;
+        max-height: none;
+    }
 }
 
 .sidebar {
-    background: rgba(26, 13, 0, 0.85);
+    background: rgba(26, 18, 0, 0.85);
     backdrop-filter: blur(10px);
     padding: 40px 30px;
-    box-shadow: 4px 0 30px rgba(255, 140, 0, 0.3);
+    box-shadow: 4px 0 30px rgba(255, 193, 7, 0.3);
     overflow-y: auto;
-    border-right: 1px solid rgba(255, 140, 0, 0.3);
+    border-right: 1px solid rgba(255, 193, 7, 0.3);
     position: relative;
     z-index: 1;
 }
 
 .sidebar h3 {
-    color: #ffb366;
+    color: #ffe082;
     font-size: 1.3rem;
     margin: 0 0 20px 0;
     font-weight: 700;
-    border-bottom: 3px solid #ff8c00;
+    border-bottom: 3px solid #ffc107;
     padding-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
 }
 
 .sidebar .name {
@@ -83,7 +92,7 @@ body::before {
     color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
 }
 
 .sidebar .info-section {
@@ -91,34 +100,50 @@ body::before {
 }
 
 .sidebar .info-section h4 {
-    color: #ffa500;
+    color: #ffd54f;
     font-size: 1rem;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
 .sidebar p {
-    color: #d0bcaa;
+    color: #d0c8b0;
     font-size: 0.95rem;
     line-height: 1.7;
     margin: 8px 0;
 }
 
 .sidebar .highlight {
-    color: #ffb366;
+    color: #ffe082;
     font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255, 193, 7, 0.3);
+    transition: all 0.3s;
+}
+
+.sidebar .highlight:hover {
+    color: #ffc107;
+    border-bottom-color: #ffc107;
 }
 
 .sidebar .badge {
     display: inline-block;
-    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-    color: #1a0f00;
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    color: #1a1400;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     margin: 5px 5px 5px 0;
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
     font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.sidebar .badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 193, 7, 0.6);
 }
 
 .main-content {
@@ -128,15 +153,20 @@ body::before {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+    .main-content {
+        padding: 30px 20px;
+    }
+    
     .sidebar {
         padding: 30px 20px;
     }
     
-    .main-content {
-        padding: 40px 30px;
+    h1 {
+        font-size: 2rem !important;
     }
 }
 
@@ -158,42 +188,54 @@ h1 {
     font-weight: 700;
     letter-spacing: 3px;
     text-align: center;
-    text-shadow: 0 0 30px rgba(255, 140, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.5);
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.8), 0 0 60px rgba(255, 215, 0, 0.5);
 }
 
 .survey-container {
     display: flex;
     flex-direction: column;
-    gap: 120px;
+    gap: 80px;
     margin-bottom: 80px;
     width: 100%;
     padding: 30px 0;
 }
 
+@media (max-width: 768px) {
+    .survey-container {
+        gap: 60px;
+    }
+}
+
 fieldset {
-    border: 2px solid rgba(255, 140, 0, 0.6);
+    border: 2px solid rgba(255, 193, 7, 0.6);
     margin: 0;
     padding: 0;
-    background: rgba(35, 20, 0, 0.7);
+    background: rgba(35, 25, 0, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     text-align: left;
-    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3), 0 0 80px rgba(255, 215, 0, 0.1);
     transition: all 0.3s;
     overflow: hidden;
 }
 
 fieldset:hover {
-    border-color: rgba(255, 165, 0, 0.8);
-    box-shadow: 0 12px 40px rgba(255, 140, 0, 0.5), 0 0 100px rgba(255, 165, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 12px 40px rgba(255, 193, 7, 0.5), 0 0 100px rgba(255, 215, 0, 0.3);
     transform: translateY(-5px);
 }
 
 .question-header {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.9) 0%, rgba(255, 102, 0, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 152, 0, 0.9) 100%);
     padding: 25px 35px;
-    color: #1a0f00;
+    color: #1a1400;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .question-header {
+        padding: 20px 20px;
+    }
 }
 
 .question-header::before {
@@ -208,7 +250,7 @@ fieldset:hover {
 
 legend {
     font-weight: 600;
-    color: #1a0f00;
+    color: #1a1400;
     padding: 0;
     font-size: 1.1rem;
     line-height: 1.5;
@@ -218,16 +260,34 @@ legend {
     text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 768px) {
+    legend {
+        font-size: 1rem;
+    }
+}
+
 .question-desc {
-    color: rgba(26, 15, 0, 0.85);
+    color: rgba(26, 20, 0, 0.85);
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 8px 0 0 0;
 }
 
+@media (max-width: 768px) {
+    .question-desc {
+        font-size: 0.85rem;
+    }
+}
+
 .question-content {
     padding: 30px 35px;
-    background: rgba(20, 12, 0, 0.5);
+    background: rgba(20, 15, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .question-content {
+        padding: 20px 15px;
+    }
 }
 
 .radio-group {
@@ -236,65 +296,60 @@ legend {
     gap: 12px;
 }
 
+@media (max-width: 768px) {
+    .radio-group {
+        gap: 8px;
+    }
+}
+
 .radio-group label {
     flex: 1;
     text-align: center;
     cursor: pointer;
     padding: 12px 10px;
-    border: 2px solid rgba(255, 140, 0, 0.4);
+    border: 2px solid rgba(255, 193, 7, 0.4);
     border-radius: 10px;
     transition: all 0.3s;
-    color: #d0bcaa;
+    color: #d0c8b0;
     font-size: 0.9rem;
     line-height: 1.3;
-    background: rgba(35, 20, 0, 0.5);
+    background: rgba(35, 25, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .radio-group label {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
 }
 
 .radio-group label:hover {
-    border-color: #ffa500;
-    background-color: rgba(255, 140, 0, 0.2);
-    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+    border-color: #ffd54f;
+    background-color: rgba(255, 193, 7, 0.2);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
 }
 
 .radio-group input[type="radio"]:checked + span {
-    color: #1a0f00;
+    color: #1a1400;
 }
 
 .radio-group label:has(input[type="radio"]:checked) {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.8) 0%, rgba(255, 102, 0, 0.8) 100%);
-    border-color: #ff8c00;
-    color: #1a0f00;
-    box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%);
+    border-color: #ffc107;
+    color: #1a1400;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.6);
     font-weight: 600;
 }
 
 .radio-group input[type="radio"] {
     cursor: pointer;
-    accent-color: #ff8c00;
-}
-
-.radio-group label:hover {
-    background-color: rgba(255, 140, 0, 0.1);
-}
-
-.radio-group input[type="radio"]:checked + span {
-    color: #1a0f00;
-    font-weight: 700;
-}
-
-.radio-group label {
-    position: relative;
-}
-
-.radio-group input[type="radio"] {
-    cursor: pointer;
-    accent-color: #ff8c00;
+    accent-color: #ffc107;
 }
 
 #recommend-btn {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.9) 0%, rgba(255, 102, 0, 0.9) 100%);
-    color: #1a0f00;
-    border: 2px solid rgba(255, 165, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 152, 0, 0.9) 100%);
+    color: #1a1400;
+    border: 2px solid rgba(255, 215, 0, 0.5);
     padding: 20px 50px;
     font-size: 1.3rem;
     font-weight: 700;
@@ -303,15 +358,22 @@ legend {
     transition: all 0.3s;
     margin-top: 40px;
     width: 100%;
-    box-shadow: 0 8px 30px rgba(255, 140, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(255, 193, 7, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
     text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    #recommend-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
 }
 
 #recommend-btn:hover:not(:disabled) {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(255, 140, 0, 0.7), 0 0 80px rgba(255, 165, 0, 0.5);
-    background: linear-gradient(135deg, rgba(255, 165, 0, 0.9) 0%, rgba(255, 140, 0, 0.9) 100%);
-    border-color: #ffb366;
+    box-shadow: 0 12px 40px rgba(255, 193, 7, 0.7), 0 0 80px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.9) 0%, rgba(255, 193, 7, 0.9) 100%);
+    border-color: #ffe082;
 }
 
 #recommend-btn:disabled {
@@ -328,10 +390,17 @@ legend {
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
+@media (max-width: 768px) {
+    #status-message {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+    }
+}
+
 #status-message.info {
-    background-color: rgba(255, 140, 0, 0.2);
-    color: #ffb366;
-    border-left: 4px solid #ff8c00;
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffe082;
+    border-left: 4px solid #ffc107;
     backdrop-filter: blur(10px);
 }
 
@@ -344,12 +413,18 @@ legend {
 
 #result-area {
     padding: 40px;
-    border: 2px solid rgba(255, 140, 0, 0.5);
+    border: 2px solid rgba(255, 193, 7, 0.5);
     border-radius: 20px;
-    background: rgba(35, 20, 0, 0.7);
+    background: rgba(35, 25, 0, 0.7);
     backdrop-filter: blur(10px);
     margin-top: 40px;
-    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3), 0 0 80px rgba(255, 215, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #result-area {
+        padding: 20px;
+    }
 }
 
 .game-thumbnail {
@@ -362,33 +437,51 @@ legend {
     height: 350px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(255, 140, 0, 0.4);
-    border: 2px solid rgba(255, 165, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(255, 193, 7, 0.4);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .game-thumbnail img {
+        height: 200px;
+    }
 }
 
 .game-info h2 {
-    color: #ffb366;
+    color: #ffe082;
     margin: 20px 0 15px 0;
     font-size: 2rem;
-    text-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
+    text-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+}
+
+@media (max-width: 768px) {
+    .game-info h2 {
+        font-size: 1.5rem;
+    }
 }
 
 .game-info p {
     margin: 12px 0;
-    color: #d0bcaa;
+    color: #d0c8b0;
     font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+    .game-info p {
+        font-size: 0.95rem;
+    }
 }
 
 .rating {
     display: inline-block;
-    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-    color: #1a0f00;
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    color: #1a1400;
     padding: 8px 18px;
     border-radius: 20px;
     font-weight: 700;
     margin: 15px 0;
     font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
 }
 
 .platforms {
@@ -400,13 +493,31 @@ legend {
 }
 
 .platform-tag {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.3) 0%, rgba(255, 102, 0, 0.3) 100%);
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.3) 0%, rgba(255, 152, 0, 0.3) 100%);
     padding: 8px 16px;
     border-radius: 15px;
     font-size: 0.9rem;
-    color: #ffb366;
+    color: #ffe082;
     font-weight: 500;
-    border: 1px solid rgba(255, 165, 0, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.trailer-link {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%);
+    color: #1a1400;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+}
+
+.trailer-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
 }
 
 .hidden {
@@ -416,7 +527,7 @@ legend {
 .footer {
     margin-top: 50px;
     padding-top: 30px;
-    border-top: 2px solid rgba(255, 140, 0, 0.3);
+    border-top: 2px solid rgba(255, 193, 7, 0.3);
     text-align: center;
 }
 
@@ -424,7 +535,7 @@ small {
     display: block;
     margin-top: 15px;
     font-size: 0.95rem;
-    color: #d0bcaa;
+    color: #d0c8b0;
     font-weight: 500;
 }
 </style>
@@ -438,26 +549,25 @@ small {
         <div class="info-section">
             <h4>🎓 Education</h4>
             <p>
-                <span class="highlight">서울사이버대학교</span><br>
-                빅데이터·정보보호학과 재학
+                <a href="https://www.iscu.ac.kr/" target="_blank" class="highlight">서울사이버대학교</a><br>
+                빅데이터-정보보호학과 재학
             </p>
         </div>
         
         <div class="info-section">
             <h4>💡 About This Project</h4>
             <p>
-                AWS 클라우드 서비스를 활용한 첫 포트폴리오 프로젝트입니다.
+                웹 개발 포트폴리오 프로젝트입니다.
                 교수님의 강의를 듣고 대화형 인공지능(Claude)의 도움을 받아 제작했습니다.
             </p>
         </div>
         
         <div class="info-section">
             <h4>🛠️ Tech Stack</h4>
-            <span class="badge">HTML5</span>
-            <span class="badge">CSS3</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">RAWG API</span>
-            <span class="badge">AWS</span>
+            <a href="https://developer.mozilla.org/ko/docs/Web/HTML" target="_blank" class="badge">HTML5</a>
+            <a href="https://developer.mozilla.org/ko/docs/Web/CSS" target="_blank" class="badge">CSS3</a>
+            <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" class="badge">JavaScript</a>
+            <a href="https://rawg.io/apidocs" target="_blank" class="badge">RAWG API</a>
         </div>
         
         <div class="info-section">
@@ -472,7 +582,42 @@ small {
     <!-- 메인 컨텐츠 -->
     <main class="main-content">
     <div class="container">
-        <h1>🔭 GameCular</h1>
+        <h1>🔭 GameCular 🌌</h1>
+
+        <!-- 플랫폼 선택 -->
+        <div style="margin-bottom: 60px;">
+            <fieldset style="border: 2px solid rgba(255, 193, 7, 0.6); background: rgba(35, 25, 0, 0.7); backdrop-filter: blur(10px); border-radius: 15px; padding: 0; overflow: hidden; box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3);">
+                <div style="background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 152, 0, 0.9) 100%); padding: 20px 35px;">
+                    <legend style="font-weight: 600; color: #1a1400; font-size: 1.1rem; margin: 0;">🎮 플랫폼 선택</legend>
+                    <p style="color: rgba(26, 20, 0, 0.85); font-size: 0.9rem; margin: 8px 0 0 0;">원하는 플랫폼을 선택하세요 (여러 개 선택 가능)</p>
+                </div>
+                <div style="padding: 30px 35px; background: rgba(20, 15, 0, 0.5);">
+                    <div id="platform-buttons" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                        <button type="button" class="platform-btn" data-platform="all" style="flex: 1; min-width: 120px; padding: 12px 20px; background: linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%); color: #1a1400; border: 2px solid #ffc107; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; box-shadow: 0 0 30px rgba(255, 193, 7, 0.6);">
+                            전체 플랫폼
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="PC" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            💻 PC
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="PlayStation" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            🎮 PlayStation
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="Xbox" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            ❎ Xbox
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="Nintendo" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            🔴 Nintendo
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="iOS" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            📱 iOS
+                        </button>
+                        <button type="button" class="platform-btn" data-platform="Android" style="flex: 1; min-width: 120px; padding: 12px 20px; background: rgba(35, 25, 0, 0.5); color: #d0c8b0; border: 2px solid rgba(255, 193, 7, 0.4); border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;">
+                            📱 Android
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
 
         <div class="survey-container">
         <form id="survey-form">
@@ -558,7 +703,8 @@ small {
 
     <script>
 let ALL_GAMES = [];
-let RECOMMENDED_GAMES = [];
+let RECOMMENDED_GAMES = []; // 이미 추천한 게임 이름 저장
+let SELECTED_PLATFORMS = ['all']; // 선택된 플랫폼 (기본: 전체)
 let isLoading = true;
 const API_KEY = "d6756424932b4fe2b4092a1b64e6204f";
 const RAWG_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&ordering=-rating`;
@@ -632,6 +778,7 @@ function useFallbackData() {
     ALL_GAMES = [
         {
             name: "The Witcher 3: Wild Hunt",
+            slug: "the-witcher-3-wild-hunt",
             genres: [{name: "RPG"}, {name: "Action"}],
             rating: 4.66,
             background_image: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
@@ -640,6 +787,7 @@ function useFallbackData() {
         },
         {
             name: "Portal 2",
+            slug: "portal-2",
             genres: [{name: "Puzzle"}, {name: "Platformer"}],
             rating: 4.62,
             background_image: "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
@@ -648,6 +796,7 @@ function useFallbackData() {
         },
         {
             name: "Stardew Valley",
+            slug: "stardew-valley",
             genres: [{name: "Simulation"}, {name: "Casual"}],
             rating: 4.44,
             background_image: "https://media.rawg.io/media/games/713/713269608dc8f2f40f5a670a14b2de94.jpg",
@@ -656,6 +805,7 @@ function useFallbackData() {
         },
         {
             name: "Counter-Strike: Global Offensive",
+            slug: "counter-strike-global-offensive",
             genres: [{name: "Action"}, {name: "Shooter"}],
             rating: 4.48,
             background_image: "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
@@ -664,6 +814,7 @@ function useFallbackData() {
         },
         {
             name: "Terraria",
+            slug: "terraria",
             genres: [{name: "Adventure"}, {name: "Platformer"}],
             rating: 4.41,
             background_image: "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
@@ -672,6 +823,7 @@ function useFallbackData() {
         },
         {
             name: "Civilization VI",
+            slug: "sid-meiers-civilization-vi",
             genres: [{name: "Strategy"}, {name: "RPG"}],
             rating: 4.35,
             background_image: "https://media.rawg.io/media/games/0e5/0e5e869f2e8f496b3f09e00187ea94fc.jpg",
@@ -680,6 +832,7 @@ function useFallbackData() {
         },
         {
             name: "Minecraft",
+            slug: "minecraft",
             genres: [{name: "Adventure"}, {name: "Casual"}],
             rating: 4.43,
             background_image: "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg",
@@ -688,6 +841,7 @@ function useFallbackData() {
         },
         {
             name: "Grand Theft Auto V",
+            slug: "grand-theft-auto-v",
             genres: [{name: "Action"}, {name: "Adventure"}],
             rating: 4.47,
             background_image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
@@ -696,6 +850,7 @@ function useFallbackData() {
         },
         {
             name: "Half-Life 2",
+            slug: "half-life-2",
             genres: [{name: "Action"}, {name: "Shooter"}],
             rating: 4.50,
             background_image: "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
@@ -704,6 +859,7 @@ function useFallbackData() {
         },
         {
             name: "Animal Crossing: New Horizons",
+            slug: "animal-crossing-new-horizons",
             genres: [{name: "Simulation"}, {name: "Family"}],
             rating: 4.40,
             background_image: "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
@@ -720,11 +876,10 @@ function useFallbackData() {
 function loadGames() {
     updateStatus('🎮 게임 데이터를 불러오는 중...', 'info');
     
-    // API 요청 전 타임아웃 설정
     const timeoutId = setTimeout(() => {
         console.log('API 요청 타임아웃 - 대체 데이터 사용');
         useFallbackData();
-    }, 5000); // 5초 타임아웃
+    }, 5000);
     
     fetch(RAWG_URL)
         .then(res => {
@@ -770,7 +925,7 @@ function calculateMood() {
         }
     }
     
-    console.log("설문 점수:", scores, "→ 선택된 mood:", maxMood);
+    console.log("설문 점수:", scores, "선택된 mood:", maxMood);
     return maxMood;
 }
 
@@ -786,26 +941,42 @@ function recommendGame() {
     
     updateStatus(`${moodInfo.emoji} 당신은 ${moodInfo.title}! ${moodInfo.desc}`, 'info');
 
-    const filteredGames = ALL_GAMES
+    // 중복 방지 및 플랫폼 필터링
+    let filteredGames = ALL_GAMES
         .filter(g => Array.isArray(g.genres) && g.genres.length > 0)
         .filter(g => g.genres.some(gg => 
             targetGenres.some(tg => tg.toLowerCase() === gg.name.toLowerCase())
         ))
         .filter(g => g.rating >= 3.5)
-        .filter(g => !RECOMMENDED_GAMES.includes(g.name));
+        .filter(g => !RECOMMENDED_GAMES.includes(g.name)); // 중복 제거
 
-    console.log(`${targetGenres.join(', ')} 장르에서 ${filteredGames.length}개 게임 발견`);
+    // 플랫폼 필터링 ('전체'가 아닐 경우만)
+    if (!SELECTED_PLATFORMS.includes('all')) {
+        filteredGames = filteredGames.filter(g => {
+            if (!g.platforms || !Array.isArray(g.platforms)) return false;
+            return g.platforms.some(p => {
+                const platformName = p.platform.name;
+                return SELECTED_PLATFORMS.some(selected => 
+                    platformName.includes(selected)
+                );
+            });
+        });
+    }
+
+    console.log(`${targetGenres.join(', ')} 장르에서 ${filteredGames.length}개 게임 발견 (플랫폼: ${SELECTED_PLATFORMS.join(', ')})`);
 
     if (filteredGames.length === 0) {
+        // 모든 게임을 추천했으면 초기화
         RECOMMENDED_GAMES = [];
         const translatedGenres = targetGenres.map(g => GENRE_TRANSLATIONS[g] || g).join(", ");
-        updateStatus(`🎉 모든 [${translatedGenres}] 장르 게임을 추천했습니다! 처음부터 다시 추천받으시겠어요?`, 'info');
+        const platformText = SELECTED_PLATFORMS.includes('all') ? '전체 플랫폼' : SELECTED_PLATFORMS.join(', ');
+        updateStatus(`🎉 [${platformText}]의 모든 [${translatedGenres}] 장르 게임을 추천했습니다! 처음부터 다시 추천받으시겠어요?`, 'info');
         document.getElementById('result-area').classList.add('hidden');
         return;
     }
 
     const selectedGame = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-    RECOMMENDED_GAMES.push(selectedGame.name);
+    RECOMMENDED_GAMES.push(selectedGame.name); // 추천한 게임 목록에 추가
     displayRecommendation(selectedGame, targetGenres);
 }
 
@@ -832,24 +1003,50 @@ function displayRecommendation(game, genres) {
         }).join('')
         : '';
 
-    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,rgba(255,140,0,0.8) 0%,rgba(255,102,0,0.8) 100%);color:#1a0f00;border:2px solid rgba(255,165,0,0.5);border-radius:20px;cursor:pointer;font-size:0.9rem;font-weight:600;transition:all 0.3s;box-shadow:0 4px 20px rgba(255,140,0,0.4);" onmouseover="this.style.transform=\'scale(1.05)\';this.style.boxShadow=\'0 6px 30px rgba(255,140,0,0.6)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 20px rgba(255,140,0,0.4)\'">🎲 다른 게임 추천받기</button>';
+    // 사용자 선택 내용 가져오기
+    const scores = {
+        action: parseInt(document.querySelector('input[name="q1"]:checked')?.value || 0),
+        adventure: parseInt(document.querySelector('input[name="q2"]:checked')?.value || 0),
+        story: parseInt(document.querySelector('input[name="q3"]:checked')?.value || 0),
+        relax: parseInt(document.querySelector('input[name="q4"]:checked')?.value || 0)
+    };
 
-    resultArea.classList.remove('hidden');
-    resultArea.innerHTML = `
-        <div class="game-thumbnail">
-            <img src="${imgUrl}" alt="${title}" onerror="this.style.display='none'">
-        </div>
-        <div class="game-info">
-            <h2>🎉 ${title}</h2>
-            <div class="rating">⭐ ${rating} / 5.0</div>
-            <p><strong>장르:</strong> ${genreStr}</p>
-            ${platforms ? `<div class="platforms">${platforms}</div>` : ''}
-            <p style="color:#999; font-size:0.9rem; margin-top:15px;">
-                ${game.released ? `출시일: ${game.released}` : ''}
-            </p>
-            ${retryButton}
+    const scoreLabels = ['전혀 아니다', '아니다', '보통이다', '그렇다', '매우 그렇다'];
+    
+    const userChoices = `
+        <div style="background:rgba(255,193,7,0.1);padding:20px;border-radius:15px;margin-bottom:25px;border:1px solid rgba(255,193,7,0.3);">
+            <h3 style="color:#ffe082;margin:0 0 15px 0;font-size:1.1rem;">📊 당신의 선택</h3>
+            <div style="display:grid;gap:10px;">
+                <p style="margin:5px 0;color:#d0c8b0;"><strong style="color:#ffd54f;">액션 선호도:</strong> ${scoreLabels[scores.action - 1]} (${scores.action}점)</p>
+                <p style="margin:5px 0;color:#d0c8b0;"><strong style="color:#ffd54f;">모험/탐험 성향:</strong> ${scoreLabels[scores.adventure - 1]} (${scores.adventure}점)</p>
+                <p style="margin:5px 0;color:#d0c8b0;"><strong style="color:#ffd54f;">전략/스토리 중시도:</strong> ${scoreLabels[scores.story - 1]} (${scores.story}점)</p>
+                <p style="margin:5px 0;color:#d0c8b0;"><strong style="color:#ffd54f;">캐주얼/힐링 선호도:</strong> ${scoreLabels[scores.relax - 1]} (${scores.relax}점)</p>
+            </div>
         </div>
     `;
+
+    // 트레일러 링크 생성
+    const trailerLink = `https://www.youtube.com/results?search_query=${encodeURIComponent(game.name + ' trailer')}`;
+
+    const retryButton = '<button onclick="recommendGame()" style="margin-top:15px;padding:10px 20px;background:linear-gradient(135deg,rgba(255,193,7,0.8) 0%,rgba(255,152,0,0.8) 100%);color:#1a1400;border:2px solid rgba(255,215,0,0.5);border-radius:20px;cursor:pointer;font-size:0.9rem;font-weight:600;transition:all 0.3s;box-shadow:0 4px 20px rgba(255,193,7,0.4);" onmouseover="this.style.transform=\'scale(1.05)\';this.style.boxShadow=\'0 6px 30px rgba(255,193,7,0.6)\'" onmouseout="this.style.transform=\'scale(1)\';this.style.boxShadow=\'0 4px 20px rgba(255,193,7,0.4)\'">🎲 다른 게임 추천받기</button>';
+
+    const platformsHtml = platforms ? '<div class="platforms">' + platforms + '</div>' : '';
+    const releasedHtml = game.released ? '출시일: ' + game.released : '';
+
+    resultArea.classList.remove('hidden');
+    resultArea.innerHTML = userChoices +
+        '<div class="game-thumbnail">' +
+            '<img src="' + imgUrl + '" alt="' + title + '" onerror="this.style.display=\'none\'">' +
+        '</div>' +
+        '<div class="game-info">' +
+            '<h2>🎉 ' + title + '</h2>' +
+            '<div class="rating">⭐ ' + rating + ' / 5.0</div>' +
+            '<p><strong>장르:</strong> ' + genreStr + '</p>' +
+            platformsHtml +
+            '<p style="color:#999; font-size:0.9rem; margin-top:15px;">' + releasedHtml + '</p>' +
+            '<a href="' + trailerLink + '" target="_blank" class="trailer-link">🎬 트레일러 보기</a>' +
+            retryButton +
+        '</div>';
 
     const mood = calculateMood();
     const moodInfo = MOOD_DESCRIPTIONS[mood];
@@ -862,6 +1059,95 @@ function displayRecommendation(game, genres) {
 document.addEventListener('DOMContentLoaded', () => {
     loadGames();
     document.getElementById('recommend-btn').addEventListener('click', recommendGame);
+    
+    // 플랫폼 버튼 클릭 이벤트
+    const platformButtons = document.querySelectorAll('.platform-btn');
+    platformButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const platform = this.getAttribute('data-platform');
+            
+            if (platform === 'all') {
+                // '전체' 선택 시 다른 모든 선택 해제
+                SELECTED_PLATFORMS = ['all'];
+                platformButtons.forEach(b => {
+                    if (b.getAttribute('data-platform') === 'all') {
+                        b.style.background = 'linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%)';
+                        b.style.color = '#1a1400';
+                        b.style.borderColor = '#ffc107';
+                        b.style.fontWeight = '600';
+                        b.style.boxShadow = '0 0 30px rgba(255, 193, 7, 0.6)';
+                    } else {
+                        b.style.background = 'rgba(35, 25, 0, 0.5)';
+                        b.style.color = '#d0c8b0';
+                        b.style.borderColor = 'rgba(255, 193, 7, 0.4)';
+                        b.style.fontWeight = '500';
+                        b.style.boxShadow = 'none';
+                    }
+                });
+            } else {
+                // 개별 플랫폼 선택
+                const allBtn = document.querySelector('.platform-btn[data-platform="all"]');
+                
+                if (SELECTED_PLATFORMS.includes('all')) {
+                    // '전체'가 선택되어 있으면 해제하고 현재 플랫폼만 선택
+                    SELECTED_PLATFORMS = [platform];
+                    allBtn.style.background = 'rgba(35, 25, 0, 0.5)';
+                    allBtn.style.color = '#d0c8b0';
+                    allBtn.style.borderColor = 'rgba(255, 193, 7, 0.4)';
+                    allBtn.style.fontWeight = '500';
+                    allBtn.style.boxShadow = 'none';
+                } else if (SELECTED_PLATFORMS.includes(platform)) {
+                    // 이미 선택된 플랫폼이면 해제
+                    SELECTED_PLATFORMS = SELECTED_PLATFORMS.filter(p => p !== platform);
+                    this.style.background = 'rgba(35, 25, 0, 0.5)';
+                    this.style.color = '#d0c8b0';
+                    this.style.borderColor = 'rgba(255, 193, 7, 0.4)';
+                    this.style.fontWeight = '500';
+                    this.style.boxShadow = 'none';
+                    
+                    // 아무것도 선택 안 되어 있으면 '전체'로 되돌림
+                    if (SELECTED_PLATFORMS.length === 0) {
+                        SELECTED_PLATFORMS = ['all'];
+                        allBtn.style.background = 'linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%)';
+                        allBtn.style.color = '#1a1400';
+                        allBtn.style.borderColor = '#ffc107';
+                        allBtn.style.fontWeight = '600';
+                        allBtn.style.boxShadow = '0 0 30px rgba(255, 193, 7, 0.6)';
+                    }
+                } else {
+                    // 새로운 플랫폼 추가
+                    SELECTED_PLATFORMS.push(platform);
+                    this.style.background = 'linear-gradient(135deg, rgba(255, 193, 7, 0.8) 0%, rgba(255, 152, 0, 0.8) 100%)';
+                    this.style.color = '#1a1400';
+                    this.style.borderColor = '#ffc107';
+                    this.style.fontWeight = '600';
+                    this.style.boxShadow = '0 0 30px rgba(255, 193, 7, 0.6)';
+                }
+            }
+            
+            // 추천 게임 목록 초기화 (플랫폼 변경 시)
+            RECOMMENDED_GAMES = [];
+            console.log('선택된 플랫폼:', SELECTED_PLATFORMS);
+        });
+        
+        // 호버 효과
+        btn.addEventListener('mouseenter', function() {
+            if (!SELECTED_PLATFORMS.includes(this.getAttribute('data-platform'))) {
+                this.style.borderColor = '#ffd54f';
+                this.style.background = 'rgba(255, 193, 7, 0.2)';
+                this.style.boxShadow = '0 0 20px rgba(255, 193, 7, 0.4)';
+            }
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            const platform = this.getAttribute('data-platform');
+            if (!SELECTED_PLATFORMS.includes(platform)) {
+                this.style.borderColor = 'rgba(255, 193, 7, 0.4)';
+                this.style.background = 'rgba(35, 25, 0, 0.5)';
+                this.style.boxShadow = 'none';
+            }
+        });
+    });
 });
     </script>
 </body>
