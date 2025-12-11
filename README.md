@@ -1,294 +1,563 @@
-# 🔭 GameCular - 우주 망원경 테마 게임 추천 시스템
+# 🔭 GameCular
+
+사용자 선호도 기반 게임 추천 웹 서비스
 
 설문 기반으로 사용자 취향에 맞는 게임을 추천하는 웹 애플리케이션
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blueviolet?style=for-the-badge)](https://본인사용자명.github.io/GameCular/)
+##
+ 📖 프로젝트 소개
 
----
+GameCular는 사용자의 게임 선호도를 분석하여 맞춤형 게임을 추천해주는 웹 서비스입니다. 
+간단한 설문을 통해 사용자의 취향을 파악하고, RAWG API를 활용하여 실시간으로 최적의 게임을 추천합니다.
+##
+ ✨ 주요 기능
 
-## 🌌 프로젝트 개요
+-
+ 🎮 
+**
+4가지 질문 기반 성향 분석
+**
 
-GameCular는 우주를 관측하는 망원경처럼 사용자에게 완벽한 게임을 찾아주는 추천 시스템입니다. 
-4가지 설문 문항을 통해 사용자의 게임 취향을 분석하고, RAWG API를 활용하여 실시간으로 최적의 게임을 추천합니다.
+  
+-
+ 액션 선호도
+  
+-
+ 모험/탐험 성향
+  
+-
+ 전략/스토리 중시도
+  
+-
+ 캐주얼/힐링 선호도
+-
+ 🎯 
+**
+맞춤형 게임 추천
+**
 
----
+  
+-
+ 액션 헌터 (Action, Shooter, Fighting)
+  
+-
+ 모험가 (Adventure, Platformer)
+  
+-
+ 전략가 (RPG, Strategy)
+  
+-
+ 힐링 마스터 (Simulation, Casual, Puzzle, Family)
+-
+ 🔄 
+**
+중복 방지 시스템
+**
 
-## 👨‍💻 개발자 소개
+  
+-
+ 이미 추천받은 게임은 제외
+  
+-
+ 다양한 게임 경험 제공
+-
+ 💾 
+**
+안정적인 대체 데이터
+**
 
-**윤인성**
+  
+-
+ API 장애 시 자동으로 대체 데이터 사용
+  
+-
+ 5초 타임아웃 설정
+##
+ 🎨 테마 버전
 
-- 🎓 서울사이버대학교 빅데이터·정보보호학과 재학
-- 🌟 AWS 클라우드 서비스를 활용한 첫 포트폴리오 프로젝트
-- 💡 교수님의 강의와 대화형 AI(Claude)의 도움을 받아 제작
-- 🚀 지속적인 개선과 학습을 통해 발전해 나가는 중
+프로젝트는 3가지 색상 테마로 제공됩니다:
+1.
+ 
+**
+보라색 테마
+**
+ (원본)
+   
+-
+ 우주적이고 신비로운 분위기
+   
+-
+ 보라색-자주색 그라데이션
+2.
+ 
+**
+노란색 테마
+**
 
-### 💭 개발 동기
+   
+-
+ 따뜻하고 밝은 분위기
+   
+-
+ 골드-노란색 그라데이션
+3.
+ 
+**
+주황색 테마
+**
+ ⭐ (권장)
+   
+-
+ 활기차고 에너제틱한 분위기
+   
+-
+ 오렌지-다크오렌지 그라데이션
+   
+-
+ 가장 안정적인 API 오류 처리
+##
+ 🛠️ 기술 스택
 
-AWS 클라우드 서비스를 이용한 웹 개발은 처음이었지만, 수업에서 배운 내용을 실제로 적용해보고 싶었습니다. 
-대화형 인공지능의 도움을 받아가며 하나씩 구현해나가는 과정에서 많은 것을 배울 수 있었습니다.
+###
+ Frontend
 
----
+-
+ 
+**
+HTML5
+**
+: 시맨틱 마크업
+-
+ 
+**
+CSS3
+**
+: 
+  
+-
+ Flexbox & Grid 레이아웃
+  
+-
+ CSS 애니메이션 (별 효과)
+  
+-
+ 그라데이션 & 블러 효과
+  
+-
+ 반응형 디자인
+-
+ 
+**
+JavaScript (ES6+)
+**
+:
+  
+-
+ Fetch API
+  
+-
+ Promise 비동기 처리
+  
+-
+ DOM 조작
+  
+-
+ 이벤트 핸들링
+###
+ API
 
-## ✨ 주요 기능
+-
+ 
+**
+RAWG Video Games Database API
+**
 
-### 📊 스마트 추천 시스템
-- 4가지 설문 항목을 통한 사용자 취향 분석
-- 액션, 모험, 전략, 휴식형 등 다양한 장르 지원
-- 중복 방지 기능으로 매번 새로운 게임 추천
+  
+-
+ 실시간 게임 데이터
+  
+-
+ 평점 기반 정렬
+  
+-
+ 장르 필터링
+###
+ Infrastructure
 
-### 🎮 실시간 게임 데이터
-- RAWG API 연동으로 최신 게임 정보 제공
-- 게임 평점, 출시일, 플랫폼 정보 표시
-- 고화질 게임 이미지 제공
+-
+ 
+**
+AWS
+**
 
-### 🌌 우주 망원경 테마
-- 우주를 배경으로 한 독특한 디자인
-- 애니메이션 별 효과
-- 네온 글로우와 글래스모피즘 UI
-- 반응형 디자인으로 모바일/데스크톱 지원
+  
+-
+ S3 (정적 웹 호스팅)
+  
+-
+ CloudFront (CDN)
+  
+-
+ Route 53 (도메인 관리) - 옵션
+###
+ Fonts
 
----
+-
+ 
+**
+Gowun Batang
+**
+ (제목용 한글 폰트)
+-
+ 
+**
+Noto Sans KR
+**
+ (본문용 한글 폰트)
+##
+ 📁 프로젝트 구조
 
-## 🛠️ 기술 스택
-
-### Frontend
-- **HTML5**: 시맨틱 마크업
-- **CSS3**: 
-  - CSS Grid & Flexbox 레이아웃
-  - 키프레임 애니메이션
-  - 글래스모피즘 효과
-  - 반응형 디자인
-- **JavaScript (Vanilla)**: 
-  - ES6+ 문법
-  - Fetch API
-  - DOM 조작
-  - 이벤트 핸들링
-
-### API & Services
-- **RAWG API**: 게임 데이터베이스
-- **AWS**: 호스팅 (예정)
-- **GitHub Pages**: 배포
-
-### Design
-- **Google Fonts**: Gowun Batang, Noto Sans KR
-- **Color Scheme**: 우주 테마 (보라/남색 계열)
-
----
-
-## 📋 설문 로직
-
-사용자의 응답에 따라 가장 높은 점수를 받은 카테고리의 게임을 추천합니다.
-
-| 질문 | 연관 장르 | 특징 |
-|------|-----------|------|
-| 빠르고 화려한 액션 | Action, Shooter, Fighting | 박진감 넘치는 전투 |
-| 탐험과 모험 | Adventure, Platformer | 미지의 세계 발견 |
-| 전략과 스토리 | RPG, Strategy | 깊이 있는 게임플레이 |
-| 편안한 휴식 | Simulation, Casual, Puzzle, Family | 힐링 게임 |
-
----
-
-## 📂 프로젝트 구조
 ```
-GameCular/
-├── index.html              # 메인 파일 (HTML + CSS + JS 통합) ⭐
-├── README.md               # 프로젝트 설명서
-└── archive/                # 개발 과정 파일 (참고용)
-    ├── README.md           # 버전별 변경 내역
-    ├── v1-index.html       # 초기 HTML
-    ├── styles.css          # 분리된 CSS (v1)
-    ├── script.js           # 분리된 JS (v1)
-    └── games.json          # 더미 데이터 (v1)
+
+gamecular/
+├── index.html                    # 보라색 테마 (원본)
+├── gamecular-yellow.html         # 노란색 테마
+├── gamecular-orange.html         # 주황색 테마 (권장)
+└── README.md                     # 프로젝트 문서
+
 ```
 
-> 💡 **Tip**: 실제 사용 시에는 루트의 `index.html` 파일만 열면 됩니다!
+##
+ 🚀 시작하기
 
----
+###
+ 1. 파일 다운로드
 
-## 🚀 실행 방법
+```
+bash
 
-### 1. 로컬에서 실행
+git
+ clone https://github.com/yourusername/gamecular.git
+cd
+ gamecular
 
-#### 방법 A: 브라우저로 바로 열기
-```bash
-# 파일 탐색기에서 index.html 더블클릭
-# 또는
-open index.html  # Mac
-start index.html # Windows
 ```
 
-#### 방법 B: Live Server 사용 (권장)
-```bash
-# VS Code Extension 설치
-# index.html 우클릭 → Open with Live Server
+###
+ 2. 로컬 실행
+
+```
+bash
+
+# 방법 1: Python 간단한 서버
+
+python -m http.server 
+8000
+
+# 방법 2: VS Code Live Server 확장 사용
+
+# 방법 3: 브라우저에서 HTML 파일 직접 열기
+
 ```
 
-#### 방법 C: Python 서버
-```bash
-# Python 3 사용
-python -m http.server 8000
+###
+ 3. AWS S3 배포 (옵션)
 
-# 브라우저에서 http://localhost:8000 접속
+```
+bash
+
+# AWS CLI 설치 및 구성 후
+
+aws s3 
+sync
+ 
+.
+ s3://your-bucket-name --exclude 
+".git/*"
+
 ```
 
-### 2. GitHub Pages 배포
-```bash
-# 1. GitHub 저장소로 이동
-https://github.com/본인사용자명/GameCular
+##
+ 🎮 사용 방법
 
-# 2. Settings → Pages
-# 3. Branch: main 선택
-# 4. Save 클릭
+1.
+ 
+**
+웹사이트 접속
+**
 
-# 배포된 URL:
-# https://본인사용자명.github.io/GameCular/
+   
+-
+ 로컬: 
+`http://localhost:8000`
+
+   
+-
+ 배포: 배포된 URL
+2.
+ 
+**
+설문 작성
+**
+
+   
+-
+ 4가지 질문에 대해 1~5점 척도로 응답
+   
+-
+ 기본값: 모두 3점 (보통)
+3.
+ 
+**
+게임 추천 받기
+**
+
+   
+-
+ "추천 받기" 버튼 클릭
+   
+-
+ 성향에 맞는 게임 확인
+   
+-
+ "다른 게임 추천받기" 버튼으로 추가 추천
+4.
+ 
+**
+반복 사용
+**
+
+   
+-
+ 설문 내용 변경 후 다시 추천 가능
+   
+-
+ 같은 장르 내에서 중복 없이 추천
+##
+ 🔧 API 설정
+
+###
+ RAWG API Key 발급
+
+1.
+ 
+[
+RAWG.io
+](
+https://rawg.io/apidocs
+)
+ 접속
+2.
+ 회원가입 후 API Key 발급
+3.
+ HTML 파일에서 API Key 교체:
+```
+javascript
+
+const
+ 
+API_KEY
+ 
+=
+ 
+"your-api-key-here"
+;
+
 ```
 
----
+##
+ 💡 주요 기능 설명
 
-## 🔄 개발 히스토리
+###
+ 1. 성향 분석 알고리즘
 
-### Phase 1: 프로토타입 (v1.0)
-**기간**: 초기 개발
+```
+javascript
 
-**특징**:
-- 파일 분리 구조 (HTML, CSS, JS 분리)
-- 정적 JSON 데이터 사용
-- 기본적인 UI/UX
+// 4가지 질문의 점수를 비교하여 가장 높은 점수의 성향 선택
 
-**기술 스택**:
-- 전통적인 파일 구조
-- 더미 게임 데이터
+const
+ scores 
+=
+ 
+{
 
-### Phase 2: API 통합 (v1.5)
-**개선사항**:
-- RAWG API 연동
-- 실시간 게임 데이터 로딩
-- 에러 처리 추가
+    
+action
+:
+ q1_score
+,
 
-### Phase 3: 디자인 리뉴얼 (v2.0) ⭐ 현재
-**기간**: 최종 버전
+    
+adventure
+:
+ q2_score
+,
 
-**주요 변경사항**:
-- 🌌 **우주 망원경 테마** 적용
-- 🔭 망원경 이모지 브랜딩
-- ✨ 애니메이션 별 배경
-- 💎 글래스모피즘 UI
-- 🎨 보라/남색 네온 색상
-- 📏 문항 간격 80px로 확대
-- 🚫 중복 게임 추천 방지
-- 📱 완전한 반응형 디자인
+    
+story
+:
+ q3_score
+,
 
-**기술적 개선**:
-- 단일 HTML 파일로 통합
-- 폴백 시스템 (API 실패 시 더미 데이터)
-- 향상된 사용자 경험
+    
+relax
+:
+ q4_score
+}
+;
 
-자세한 개발 과정은 [`archive/README.md`](./archive/README.md) 참고
+// 최고 점수 성향 → 해당 장르 게임 추천
 
----
-
-## 📊 API 정보
-
-### RAWG Video Games Database API
-
-**엔드포인트**: `https://api.rawg.io/api/games`
-
-**사용된 파라미터**:
-- `key`: API 인증 키
-- `page_size`: 40 (한 번에 가져올 게임 수)
-- `ordering`: -rating (평점 높은 순 정렬)
-
-**공식 문서**: https://api.rawg.io/docs
-
-**API 키 발급**: https://rawg.io/login?forward=developer
-
-### API 사용 예시
-```javascript
-const API_KEY = "your_api_key_here";
-const url = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&ordering=-rating`;
-
-fetch(url)
-  .then(res => res.json())
-  .then(data => console.log(data.results));
 ```
 
+###
+ 2. 게임 필터링
+
+-
+ 선택된 성향의 장르와 매칭되는 게임만 필터링
+-
+ 평점 3.5 이상의 게임만 추천
+-
+ 이미 추천한 게임 제외
+###
+ 3. 오류 처리
+
+-
+ API 실패 시 자동으로 대체 게임 데이터 사용
+-
+ 5초 타임아웃으로 무한 대기 방지
+-
+ 사용자에게 친절한 오류 메시지 제공
+##
+ 🎨 디자인 특징
+
+###
+ 우주 테마
+
+-
+ 별이 반짝이는 애니메이션 배경
+-
+ 그라데이션을 활용한 깊이감
+-
+ 블러 효과로 몽환적인 분위기
+###
+ 반응형 디자인
+
+-
+ 데스크탑: 사이드바 + 메인 컨텐츠 (2단 레이아웃)
+-
+ 태블릿/모바일: 세로 스크롤 (1단 레이아웃)
+-
+ 1024px 기준 브레이크포인트
+###
+ 사용자 경험 (UX)
+
+-
+ 호버 효과로 인터랙션 피드백
+-
+ 부드러운 트랜지션 애니메이션
+-
+ 명확한 시각적 피드백
+##
+ 📊 성능 최적화
+
+-
+ 이미지 lazy loading 미적용 (고려 중)
+-
+ CSS 애니메이션 최적화
+-
+ API 요청 캐싱 미적용 (향후 개선)
+-
+ 폰트 로딩 최적화 (preconnect 사용)
+##
+ 🐛 알려진 이슈
+
+1.
+ 
+**
+CORS 이슈
+**
+
+   
+-
+ 로컬 환경에서 file:// 프로토콜 사용 시 발생 가능
+   
+-
+ 해결: 로컬 서버 사용 권장
+2.
+ 
+**
+이미지 로딩 실패
+**
+
+   
+-
+ RAWG API의 이미지 URL이 만료되거나 변경될 수 있음
+   
+-
+ 해결: onerror 핸들러로 이미지 숨김 처리
+##
+ 🔜 향후 개발 계획
+
+-
+ [ ] 게임 상세 정보 모달 추가
+-
+ [ ] 즐겨찾기 기능
+-
+ [ ] 사용자 리뷰 시스템
+-
+ [ ] 친구에게 공유하기
+-
+ [ ] 다국어 지원 (영어)
+-
+ [ ] 다크모드 / 라이트모드 토글
+-
+ [ ] 게임 검색 기능
+-
+ [ ] 필터링 옵션 추가 (플랫폼, 출시년도 등)
+##
+ 👨‍💻 개발자 정보
+
+**
+윤인성
+**
+
+-
+ 소속: 서울사이버대학교 빅데이터·정보보호학과 재학
+-
+ 프로젝트: AWS 클라우드 서비스 활용 포트폴리오
+-
+ 지원: 교수님 강의 + Claude AI 협업
+##
+ 📝 라이선스
+
+이 프로젝트는 개인 포트폴리오 목적으로 제작되었습니다.
+-
+ RAWG API: 
+[
+RAWG Terms of Service
+](
+https://rawg.io/apidocs
+)
+ 준수
+-
+ 폰트: Google Fonts (Open Font License)
+##
+ 🙏 감사의 말
+
+-
+ RAWG.io - 훌륭한 게임 데이터베이스 API 제공
+-
+ Anthropic Claude - 개발 지원 및 코드 리뷰
+-
+ 교수님 - AWS 강의 및 프로젝트 지도
+-
+ Google Fonts - 아름다운 한글 폰트 제공
+##
+ 📞 문의
+
+프로젝트에 대한 질문이나 제안사항이 있으시면 이슈를 등록해주세요!
 ---
 
-## 🎨 디자인 특징
-
-### 🌌 우주 테마
-- **배경**: 다층 그라디언트로 깊은 우주 표현
-- **별**: CSS 애니메이션으로 움직이는 별들
-- **색상**: 보라/남색 계열의 우주적 느낌
-
-### 💎 글래스모피즘
-- 반투명 배경 (`backdrop-filter: blur()`)
-- 부드러운 그림자
-- 네온 테두리 효과
-
-### ✨ 인터랙션
-- 호버 시 떠오르는 효과
-- 선택 시 글로우 효과
-- 부드러운 트랜지션
-
----
-
-## 📈 향후 개선 계획
-
-- [ ] 게임 상세 정보 모달 추가
-- [ ] 사용자 추천 히스토리 저장 (localStorage)
-- [ ] 게임 즐겨찾기 기능
-- [ ] 소셜 공유 기능
-- [ ] 더 많은 설문 항목 추가
-- [ ] 다크모드/라이트모드 토글
-- [ ] 다국어 지원 (영어)
-- [ ] PWA(Progressive Web App) 전환
-
----
-
-## 🐛 알려진 이슈
-
-### API 관련
-- CORS 정책으로 인해 로컬에서 `file://` 프로토콜로 열 시 API 호출 실패
-  - **해결**: Live Server 사용 또는 GitHub Pages 배포
-
-### 브라우저 호환성
-- Internet Explorer 미지원
-- 최신 Chrome, Firefox, Safari, Edge 권장
-
----
-
-## 💻 개발 환경
-
-- **OS**: Windows / macOS / Linux
-- **Editor**: VS Code
-- **Browser**: Chrome 120+
-- **Node.js**: 필요 없음 (Vanilla JavaScript)
-
----
-
-## 📝 라이선스
-
-MIT License
-
----
-
-## 🙏 감사의 말
-
-- **교수님**: 프로젝트 방향성과 AWS 강의 제공
-- **Claude AI**: 개발 과정 전반에 걸친 기술 지원
-- **RAWG API**: 풍부한 게임 데이터 제공
-- **서울사이버대학교**: 학습 기회 제공
-
----
-
-## 📞 문의
-
-프로젝트에 대한 질문이나 제안사항이 있으시면 GitHub Issues를 통해 연락 주세요!
-
----
-
-**Made with 🔭 and 💜 by 윤인성**
-
-*"우주를 관측하듯, 완벽한 게임을 찾아드립니다"*
+⭐ 이 프로젝트가 도움이 되셨다면 Star를 눌러주세요!
